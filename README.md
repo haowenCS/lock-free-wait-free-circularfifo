@@ -1,5 +1,7 @@
 ### The experiment result
 
+The speed: lock < sequential consistency < relaxed acquire release
+
 1. Circular_FIFO with lock shared:
 
 ```text
@@ -42,6 +44,31 @@ Producer: 	#1000000 items took #22.003 milliseconds to shuffle, average: 0.02200
 
 
 Consumer: 	#1000000 items took #57.82 milliseconds to shuffle, average: 0.05782, hit limit?: 1
+
+
+FINISHED WITH THE TESTING
+Process finished with exit code 0
+```
+
+3Circular_FIFO with lockfree sequential consistency:
+
+```text
+/Users/mac/Documents/工作/C++/lock-free-wait-free-circularfifo/cmake-build-debug/unit_test_lockfree_sequential_consistent --gtest_filter=* --gtest_color=no
+Testing started at 12:05 上午 ...
+
+
+hello from thread 
+std::thread::hardware_concurrency() = 16
+
+
+Prepare to wait a bit, pushing 1000000 through a circular fifo of size: 1048576
+
+	#1000000 items took #139 milliseconds to shuffle
+
+Producer: 	#1000000 items took #87.194 milliseconds to shuffle, average: 0.087194, hit limit?: 0
+
+
+Consumer: 	#1000000 items took #139.073 milliseconds to shuffle, average: 0.139073, hit limit?: 1
 
 
 FINISHED WITH THE TESTING

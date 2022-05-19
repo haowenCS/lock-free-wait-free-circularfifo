@@ -4,16 +4,20 @@
 #include <atomic>
 
 
-
 #if defined (MEMORY___RELAXED_AQUIRE_RELEASE_PADDED)
   #include "circularfifo_memory_relaxed_aquire_release_padded.hpp"
   using namespace memory_relaxed_aquire_release_padded;
 
+#elif defined (MEMORY___SEQUENTIAL_CONSISTENT)
+  #include "circularfifo_memory_sequential_consistent.hpp"
+  using namespace memory_sequential_consistent;
+
 #elif defined (MEMORY___RELAXED_AQUIRE_RELEASE)
   #include "circularfifo_memory_relaxed_aquire_release.hpp"
   using namespace memory_relaxed_aquire_release;
+
 #elif defined (MEMORY___LOCKED)
-#include "shared_queue.hpp"
+  #include "shared_queue.hpp"
 #else
   #error AQUIRE_RELEASE or AQUIRE_RELEASE_PADDED or MEMORY___LOCKED should be defined
 #endif
