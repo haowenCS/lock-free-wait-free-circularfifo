@@ -59,16 +59,6 @@ namespace {
 
 } // anonymous
 
-
-
-
-
-
-
-
-
-
-
 // Helper for filling a container with random values. Values ranging between low, to high
 template<typename Container>
 void replaceContentWithRandoms(Container& to_randomize, g2::Number low, g2::Number high) {
@@ -94,12 +84,6 @@ TEST(Cpp11, stdThreadIsOK) {
    ss << "std::thread::hardware_concurrency() = " << std::thread::hardware_concurrency();  // Scope exit be prepared for destructor failure
    std::cout << ss.str() << std::endl;
 }
-
-
-
-
-
-
 
 // The producer functionality
 std::vector<Message> Producer(MessageQueue& out_fifo, const size_t enough_processed) {

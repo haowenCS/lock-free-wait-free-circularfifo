@@ -79,7 +79,8 @@ bool CircularFifo<Element, Size>::pop(Element& item)
   return true;
 }
 
-size_t size() const { 
+template<typename Element, size_t Size>
+size_t CircularFifo<Element, Size>::size() const {
    const int tail = _tail.load();
    const int head = _head.load();
    int remaining = (head - tail) + (-((int) (head <= tail)) & Size);
